@@ -156,7 +156,7 @@ module WEBrick
 
       server_type.start{
         @logger.info \
-          "#{self.class}#start: pid=#{$$} port=#{@config[:Port]}"
+          "#{self.class}#start: pid=#{$$} #{"port=#{@config[:Port]}" unless @config[:DoNotListen]}"
         @status = :Running
         call_callback(:StartCallback)
 
